@@ -1,0 +1,14 @@
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\bin\Debug\net8.0\Desafio1-Rpg.exe
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\bin\Debug\net8.0\Desafio1-Rpg.deps.json
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\bin\Debug\net8.0\Desafio1-Rpg.runtimeconfig.json
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\bin\Debug\net8.0\Desafio1-Rpg.dll
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\bin\Debug\net8.0\Desafio1-Rpg.pdb
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\Desafio1-Rpg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\Desafio1-Rpg.AssemblyInfoInputs.cache
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\Desafio1-Rpg.AssemblyInfo.cs
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\Desafio1-Rpg.csproj.CoreCompileInputs.cache
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\Desafio1-Rpg.dll
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\refint\Desafio1-Rpg.dll
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\Desafio1-Rpg.pdb
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\Desafio1-Rpg.genruntimeconfig.cache
+C:\Users\christian.schumacher\source\repos\Segundo_curso_de_backend\Desafio1-Rpg\Desafio1-Rpg\obj\Debug\net8.0\ref\Desafio1-Rpg.dll
