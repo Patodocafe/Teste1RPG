@@ -1,5 +1,6 @@
 ﻿using Desafio1_Rpg;
-Personagem pedro = new Personagem("pedro", 40, 8, 13);
+Personagem jogador = CriadorDePersonagem.CriarPersonagem();
+jogador.Exibir();
 
 
 Personagem inimigo = new Personagem("Orc", 20, 4, 6);
@@ -7,10 +8,6 @@ Personagem inimigo = new Personagem("Orc", 20, 4, 6);
 
 while (true)
 {
-    Console.WriteLine("Player...");
-    Console.WriteLine("Vida: " + pedro.Vida);
-    Console.WriteLine("Ataque: " + pedro.Ataque);
-
     Console.WriteLine("Inimigo...");
     Console.WriteLine("Vida: " + inimigo.Vida);
     Console.WriteLine("Ataque: " + inimigo.Ataque);
@@ -27,15 +24,15 @@ while (true)
 
     if (escolha == "1")
     {
-        pedro.Atacar(inimigo);
+        jogador.Atacar(inimigo);
     }
     else if (escolha == "2")
     {
-        pedro.Especial(inimigo);
+        jogador.Especial(inimigo);
     }
     else if (escolha == "3")
     {
-        pedro.Exibir();
+        jogador.Exibir();
     }
     else if (escolha == "4")
     {
@@ -50,15 +47,22 @@ while (true)
     Console.WriteLine("");
     Console.WriteLine("Vez do inimigo...");
     Console.WriteLine("");
-    pedro.DanoRecebido();
+    jogador.DanoRecebido();
 
 
-    if(pedro.Vida <= 0)
+    if(jogador.Vida <= 0)
     {
         break;
     }
     if (inimigo.Vida <= 0)
     {
+        Console.WriteLine("Parabéns, você venceu o inimigo!");
         break;
     }
+
+    Console.WriteLine("Turno finalizado. Precione qualquer tecla");
+    Console.ReadKey();
+    Console.Clear();
+
+
 }
