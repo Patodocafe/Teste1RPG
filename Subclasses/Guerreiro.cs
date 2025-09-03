@@ -21,17 +21,17 @@ namespace Desafio1_Rpg.Subclasses
             int rolagem = Dado.RoollD20();
             Console.WriteLine("Rolagem do dado: " + rolagem);
 
-            if (rolagem == 20)
+            if (rolagem >= 18)
             {
 
-                int DanoCausado = Math.Max(Dado.RoollD12(), 8);
+                int DanoCausado = Math.Max(Dado.RoollD8(), 8);
                 Console.WriteLine("Acerto Crítico! Dano causado: " + DanoCausado);
                 double InimigoVidaTotal = inimigo.Vida - DanoCausado;
                 inimigo.Vida = InimigoVidaTotal;
             }
             else if (rolagem >= Ataque)
             {
-                int DanoCausado = Dado.RoollD12();
+                int DanoCausado = Dado.RoollD8();
                 Console.WriteLine("Acertou o ataque! Dano causado: " + DanoCausado);
                 double InimigoVidaTotal = inimigo.Vida - DanoCausado;
                 inimigo.Vida = InimigoVidaTotal;
@@ -49,7 +49,7 @@ namespace Desafio1_Rpg.Subclasses
             int rolagem = Dado.RoollD20();
             Console.WriteLine("Rolagem do dado: " + rolagem);
 
-            if (rolagem == 20)
+            if (rolagem >= 18)
             {
 
                 int DanoCausado = Math.Max(Dado.RoollD20(), 16);
@@ -67,6 +67,7 @@ namespace Desafio1_Rpg.Subclasses
             else
             {
                 Console.WriteLine("Mas errou o ataque!");
+
             }
         }
         

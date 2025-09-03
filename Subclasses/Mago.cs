@@ -22,10 +22,10 @@ namespace Desafio1_Rpg.Subclasses
             int rolagem = Dado.RoollD20();
             Console.WriteLine("Rolagem do dado: " + rolagem);
 
-            if (rolagem == 20)
+            if (rolagem >= 18)
             {
 
-                int DanoCausado = Math.Max(Dado.RoollD12(), 8);
+                int DanoCausado = Math.Max(Dado.RoollD12(), 10);
                 Console.WriteLine("Acerto Crítico! Dano causado: " + DanoCausado);
                 double InimigoVidaTotal = inimigo.Vida - DanoCausado;
                 inimigo.Vida = InimigoVidaTotal;
@@ -46,24 +46,24 @@ namespace Desafio1_Rpg.Subclasses
 
         public override void Especial(Personagem inimigo)
         {  
-            Console.WriteLine("Fecha os olhos e se concentra no simbulo de seu catalizador, assim invocando um enorme poder para causar destruição!  ");
+            Console.WriteLine("Fecha os olhos e se concentra no simbulo de seu catalizador, assim invocando uma aura aconchegante. Você se sente bem!  ");
             int rolagem = Dado.RoollD20();
             Console.WriteLine("Rolagem do dado: " + rolagem);
 
-            if (rolagem == 20)
+            if (rolagem >= 18)
             {
 
-                int DanoCausado = Math.Max(Dado.RoollD20(), 16);
-                Console.WriteLine("Acerto Crítico! Dano causado: " + DanoCausado);
-                double InimigoVidaTotal = inimigo.Vida - DanoCausado;
-                inimigo.Vida = InimigoVidaTotal;
+                int cura = Math.Max(Dado.RoollD20(), 16);
+                Console.WriteLine("Acerto Crítico! Você curou: " + cura);
+                this.Vida += cura;
+                
             }
             else if (rolagem >= AtaqueEspecial)
             {
-                int DanoCausado = Dado.RoollD20();
-                Console.WriteLine("Acertou o ataque! Dano causado: " + DanoCausado);
-                double InimigoVidaTotal = inimigo.Vida - DanoCausado;
-                inimigo.Vida = InimigoVidaTotal;
+                int cura = Dado.RoollD20();
+                Console.WriteLine("Acertou o ataque! Você curou: " + DanoCausado);
+                this.Vida += cura;
+                
             }
             else
             {
