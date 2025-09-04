@@ -30,6 +30,13 @@ namespace Desafio1_Rpg.Subclasses
                 double InimigoVidaTotal = inimigo.Vida - DanoCausado;
                 inimigo.Vida = InimigoVidaTotal;
             }
+            else if (rolagem <= 2) // Uma penalidade para erros Criticos
+            {
+                int DanoCausado = Dado.RoollD6();
+                Console.WriteLine("Erro Critico! Dano Recebido: " + DanoCausado);
+                double vidaatual = Vida - DanoCausado;
+                Vida = vidaatual;
+            }
             else if (rolagem >= Ataque)
             {
                 int DanoCausado = Dado.RoollD12();
