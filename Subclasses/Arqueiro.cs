@@ -84,7 +84,7 @@ namespace Desafio1_Rpg.Subclasses
 
                 int bonus = Math.Max(Dado.RoollD20(), 6);
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Você sabe exatamente odne seu inimigo está, Ataque aumentado em: " + bonus);
+                Console.WriteLine("Você sabe exatamente odne seu inimigo está, Dificuldade de ataque reduzido em: " + bonus);
                 Console.ResetColor();
                 bonusAtual = bonus;
                 turnosDeBonusAtaque = 3;
@@ -95,7 +95,7 @@ namespace Desafio1_Rpg.Subclasses
             {
                 int bonus = Dado.RoollD6();
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Você se destraiu e perdeu o inimigo de vista, Ataque reduzido em: " + bonus);
+                Console.WriteLine("Você se destraiu e perdeu o inimigo de vista, Dificuldade Ataque aumentado em: " + bonus);
                 Console.ResetColor();
                 bonusAtual = bonus;
                 turnosDeBonusAtaque = 0;
@@ -105,7 +105,7 @@ namespace Desafio1_Rpg.Subclasses
             else if (rolagem >= AtaqueEspecial)
             {
                 int bonus = Dado.RoollD12();
-                Console.WriteLine("Você está focado, Ataque aumentado em: " + bonus);
+                Console.WriteLine("Você está focado, Dificuldade de ataque reduzido em: " + bonus);
                 bonusAtual = bonus;
                 turnosDeBonusAtaque = 3;
                 this.Ataque -= bonusAtual;
