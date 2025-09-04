@@ -1,4 +1,5 @@
 ﻿using Desafio1_Rpg;
+using Desafio1_Rpg.Subclasses;
 
 IniciarJogo();
     
@@ -16,8 +17,16 @@ static void IniciarJogo()
 
     while (true)
     {
-        
-        
+        if (jogador is Arqueiro arqueiro && arqueiro.turnosDeBonusAtaque > 0)
+        {
+            arqueiro.turnosDeBonusAtaque--;
+            if (arqueiro.turnosDeBonusAtaque == 0)
+            {
+                arqueiro.Ataque = arqueiro.ataqueOriginal; // restaura valor original
+                Console.WriteLine("O efeito do buff do Arqueiro acabou, dificuldade de ataque voltou ao normal.");
+            }
+        }
+
         System.Threading.Thread.Sleep(250); // 2,5 seg de delay
         Console.WriteLine("Inimigo...");
         Console.WriteLine("Vida: " + inimigo.Vida);

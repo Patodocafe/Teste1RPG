@@ -8,8 +8,10 @@ namespace Desafio1_Rpg.Subclasses
 {
     public class Arqueiro : Personagem , IIAtacavel
     {
-        private int turnosDeBonusAtaque = 0;
-        private int bonusAtual = 0;
+        public int ataqueOriginal;
+        public int turnosDeBonusAtaque = 0;
+        public int bonusAtual = 0;
+        public int minimoPermitido = 3;
 
 
         public override void AtualizarTurno()
@@ -86,29 +88,31 @@ namespace Desafio1_Rpg.Subclasses
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Você sabe exatamente odne seu inimigo está, Dificuldade de ataque reduzido em: " + bonus);
                 Console.ResetColor();
-                bonusAtual = bonus;
+                ataqueOriginal = this.Ataque;
+                this.Ataque -= bonus;
                 turnosDeBonusAtaque = 3;
-                this.Ataque -= bonusAtual;
-                 
+                Ataque = Math.Max(minimoPermitido, Ataque - bonusAtual);
+
             }
-            else if (rolagem <= 3) // Uma penalidade para erros Criticos
+            else if (rolagem <= 1) // Uma penalidade para erros Criticos
             {
                 int bonus = Dado.RoollD6();
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Você se destraiu e perdeu o inimigo de vista, Dificuldade Ataque aumentado em: " + bonus);
                 Console.ResetColor();
-                bonusAtual = bonus;
-                turnosDeBonusAtaque = 0;
-                Ataque += bonusAtual;
-                
+                ataqueOriginal = this.Ataque;
+                this.Ataque += bonus;
+                turnosDeBonusAtaque = 3;
+
             }
             else if (rolagem >= AtaqueEspecial)
             {
                 int bonus = Dado.RoollD12();
                 Console.WriteLine("Você está focado, Dificuldade de ataque reduzido em: " + bonus);
-                bonusAtual = bonus;
+                ataqueOriginal = this.Ataque;
+                this.Ataque -= bonus;
                 turnosDeBonusAtaque = 3;
-                this.Ataque -= bonusAtual;
+                Ataque = Math.Max(minimoPermitido, Ataque - bonusAtual);
             }
             else
             {
