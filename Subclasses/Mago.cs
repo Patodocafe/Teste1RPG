@@ -56,7 +56,7 @@ namespace Desafio1_Rpg.Subclasses
         }
         
 
-        public override void Especial(Personagem inimigo)
+        public override void Especial(Personagem inimigo) // subscreve o método Especial da classe base para implementar a lógica específica do Mago adicionando uma cura
         {  
             Console.WriteLine("Fecha os olhos e se concentra no simbulo de seu catalizador, assim invocando uma aura aconchegante. Você se sente bem!  ");
             int rolagem = Dado.RoollD20();

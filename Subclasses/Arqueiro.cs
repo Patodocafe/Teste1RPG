@@ -88,7 +88,7 @@ namespace Desafio1_Rpg.Subclasses
                 Console.ResetColor();
                 bonusAtual = bonus;
                 turnosDeBonusAtaque = 3;
-                this.Ataque += bonusAtual;
+                this.Ataque -= bonusAtual;
                  
             }
             else if (rolagem <= 3) // Uma penalidade para erros Criticos
@@ -99,7 +99,7 @@ namespace Desafio1_Rpg.Subclasses
                 Console.ResetColor();
                 bonusAtual = bonus;
                 turnosDeBonusAtaque = 0;
-                Ataque -= bonusAtual;
+                Ataque += bonusAtual;
                 
             }
             else if (rolagem >= AtaqueEspecial)
@@ -108,7 +108,7 @@ namespace Desafio1_Rpg.Subclasses
                 Console.WriteLine("Você está focado, Ataque aumentado em: " + bonus);
                 bonusAtual = bonus;
                 turnosDeBonusAtaque = 3;
-                this.Ataque += bonusAtual;
+                this.Ataque -= bonusAtual;
             }
             else
             {
