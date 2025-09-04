@@ -8,6 +8,25 @@ namespace Desafio1_Rpg.Subclasses
 {
     public class Arqueiro : Personagem , IIAtacavel
     {
+        private int turnosDeBonusAtaque = 0;
+        private int bonusAtual = 0;
+
+
+        public override void AtualizarTurno()
+        {
+            if (turnosDeBonusAtaque > 0)
+            {
+                turnosDeBonusAtaque--;
+                if (turnosDeBonusAtaque == 0)
+                {
+                    Ataque -= bonusAtual;
+                    Console.WriteLine("O efeito do bônus de ataque do Arqueiro acabou. Ataque retornou a: " + Ataque);
+                    bonusAtual = 0;
+                }
+            }
+        }
+
+
         public Arqueiro(string nome) : base(nome)
         {
             Vida = 110;
@@ -25,14 +44,18 @@ namespace Desafio1_Rpg.Subclasses
             {
 
                 int DanoCausado = Math.Max(Dado.RoollD8(), 8);
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Acerto Crítico! Dano causado: " + DanoCausado);
+                Console.ResetColor();
                 double InimigoVidaTotal = inimigo.Vida - DanoCausado;
                 inimigo.Vida = InimigoVidaTotal;
             }
             else if (rolagem <= 3) // Uma penalidade para erros Criticos
             {
                 int DanoCausado = Dado.RoollD6();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Erro Critico! Dano Recebido: " + DanoCausado);
+                Console.ResetColor();
                 double vidaatual = Vida - DanoCausado;
                 Vida = vidaatual;
             }
@@ -59,28 +82,37 @@ namespace Desafio1_Rpg.Subclasses
             if (rolagem >= 18) // Acerto Critico
             {
 
-                int DanoCausado = Math.Max(Dado.RoollD20(), 18);
-                Console.WriteLine("Acerto Crítico! Dano causado: " + DanoCausado);
-                double InimigoVidaTotal = inimigo.Vida - DanoCausado;
-                inimigo.Vida = InimigoVidaTotal;
+                int bonus = Math.Max(Dado.RoollD20(), 6);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Você sabe exatamente odne seu inimigo está, Ataque aumentado em: " + bonus);
+                Console.ResetColor();
+                bonusAtual = bonus;
+                turnosDeBonusAtaque = 3;
+                this.Ataque += bonusAtual;
+                 
             }
             else if (rolagem <= 3) // Uma penalidade para erros Criticos
             {
-                int DanoCausado = Dado.RoollD6();
-                Console.WriteLine("Erro Critico! Dano Recebido: " + DanoCausado);
-                double vidaatual = Vida - DanoCausado;
-                Vida = vidaatual;
+                int bonus = Dado.RoollD6();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Você se destraiu e perdeu o inimigo de vista, Ataque reduzido em: " + bonus);
+                Console.ResetColor();
+                bonusAtual = bonus;
+                turnosDeBonusAtaque = 0;
+                Ataque -= bonusAtual;
+                
             }
             else if (rolagem >= AtaqueEspecial)
             {
-                int DanoCausado = Dado.RoollD20();
-                Console.WriteLine("Acertou o ataque! Dano causado: " + DanoCausado);
-                double InimigoVidaTotal = inimigo.Vida - DanoCausado;
-                inimigo.Vida = InimigoVidaTotal;
+                int bonus = Dado.RoollD12();
+                Console.WriteLine("Você está focado, Ataque aumentado em: " + bonus);
+                bonusAtual = bonus;
+                turnosDeBonusAtaque = 3;
+                this.Ataque += bonusAtual;
             }
             else
             {
-                Console.WriteLine("Mas errou o ataque!");
+                Console.WriteLine("Mas perdeu o foco");
 
             }
         }

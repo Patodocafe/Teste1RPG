@@ -4,12 +4,21 @@ namespace Desafio1_Rpg
 {
     public class Personagem
     {
+        public double VidaMaxima { get; protected set; }
+
         public string Nome { get; set; }
         public double Vida { get; set; }
         public int Defesa { get; set; }
         public int Ataque = Dado.RoollD20();
         public int AtaqueEspecial { get; set; } = 15;
         public int DanoCausado = Dado.RoollD20();
+
+       
+        public virtual void AtualizarTurno()
+        {
+         
+        }
+
 
         public Personagem(string nome)
         {
@@ -27,6 +36,7 @@ namespace Desafio1_Rpg
 
         public Personagem(string nome, double vida, int defesa, int ataque)
         {
+            VidaMaxima = vida;
             Nome = nome;
             Vida = vida;
             Defesa = defesa;

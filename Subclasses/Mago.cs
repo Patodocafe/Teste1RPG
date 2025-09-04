@@ -14,6 +14,7 @@ namespace Desafio1_Rpg.Subclasses
             Defesa = 8;
             Ataque = 4;
             AtaqueEspecial = 10;
+            VidaMaxima = 70;
         }
 
         public override void Atacar(Personagem inimigo)
@@ -26,14 +27,18 @@ namespace Desafio1_Rpg.Subclasses
             {
 
                 int DanoCausado = Math.Max(Dado.RoollD12(), 10);
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Acerto Crítico! Dano causado: " + DanoCausado);
+                Console.ResetColor();
                 double InimigoVidaTotal = inimigo.Vida - DanoCausado;
                 inimigo.Vida = InimigoVidaTotal;
             }
             else if (rolagem <= 2) // Uma penalidade para erros Criticos
             {
                 int DanoCausado = Dado.RoollD6();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Erro Critico! Dano Recebido: " + DanoCausado);
+                Console.ResetColor();
                 double vidaatual = Vida - DanoCausado;
                 Vida = vidaatual;
             }
@@ -61,16 +66,27 @@ namespace Desafio1_Rpg.Subclasses
             {
 
                 int cura = Math.Max(Dado.RoollD20(), 16);
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Acerto Crítico! Você curou: " + cura);
+                Console.ResetColor();
                 this.Vida += cura;
-                
+                if (this.Vida > VidaMaxima)
+                {
+                    this.Vida = VidaMaxima;
+                }
+
             }
             else if (rolagem >= AtaqueEspecial)
             {
                 int cura = Dado.RoollD20();
-                Console.WriteLine("Acertou o ataque! Você curou: " + DanoCausado);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Acertou o ataque! Você curou: " + cura);
+                Console.ResetColor();
                 this.Vida += cura;
-                
+                if (this.Vida > VidaMaxima)
+                {
+                    this.Vida = VidaMaxima;
+                }
             }
             else
             {

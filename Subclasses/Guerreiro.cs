@@ -25,14 +25,18 @@ namespace Desafio1_Rpg.Subclasses
             {
 
                 int DanoCausado = Math.Max(Dado.RoollD8(), 8);
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Acerto Crítico! Dano causado: " + DanoCausado);
+                Console.ResetColor();
                 double InimigoVidaTotal = inimigo.Vida - DanoCausado;
                 inimigo.Vida = InimigoVidaTotal;
             }
             else if (rolagem <= 3) // Uma penalidade para erros Criticos
             {
                 int DanoCausado = Dado.RoollD6();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Erro Critico! Dano Recebido: " + DanoCausado);
+                Console.ResetColor();
                 double vidaatual = Vida - DanoCausado;
                 Vida = vidaatual;
             }

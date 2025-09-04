@@ -56,6 +56,8 @@ static void IniciarJogo()
             Console.WriteLine("Opção inválida, tente novamente!");
         }
 
+        jogador.AtualizarTurno();
+
         System.Threading.Thread.Sleep(250); // 2,5 seg de delay
         Console.WriteLine("");
         Console.WriteLine("Vez do inimigo...");
@@ -68,11 +70,16 @@ static void IniciarJogo()
 
         if (jogador.Vida <= 0)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Você foi derrotado pelo inimigo...");
+            Console.ResetColor();
             break;
         }
         if (inimigo.Vida <= 0)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Parabéns, você venceu o inimigo!");
+            Console.ResetColor();
             break;
         }
 
